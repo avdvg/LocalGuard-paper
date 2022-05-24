@@ -1,5 +1,3 @@
-# 生成LocalGuard噪声，优化目标分为2范数约束以及嵌入特征与随机分布隐私标签对应
-
 import torch
 import torch.nn as nn
 import numpy as np
