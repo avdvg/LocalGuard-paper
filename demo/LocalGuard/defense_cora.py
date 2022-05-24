@@ -237,7 +237,7 @@ num_nodes = adj.shape[0]
 pos_weight = float(adj.shape[0] * adj.shape[0] - adj.sum()) / adj.sum()
 norm = adj.shape[0] * adj.shape[0] / float((adj.shape[0] * adj.shape[0] - adj.sum()) * 2)
 
-adj_label = adj_train + sp.eye(adj_train.shape[0]) # 训练时测试的边标签。
+adj_label = adj_train + sp.eye(adj_train.shape[0]) 
 adj_label = sparse_to_tuple(adj_label)
 adj_label = torch.sparse.FloatTensor(torch.LongTensor(adj_label[0].T),  torch.FloatTensor(adj_label[1]), torch.Size(adj_label[2])).cuda()
 
