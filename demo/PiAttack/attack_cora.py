@@ -369,7 +369,7 @@ adj_A, adj_B, _, adj_A_link, feature_1, feature_2 = split_graph(adj_train, featu
 # feature_B = save_variable(feature_2, '/data0/BigPlatform/FL/lirongchang/localguard/tmp/cora_feature_2.txt')
 # print('saving2')
 
-# adj_A 是A的邻接矩阵（训练集）， adj_A_link 是A的测试集边。
+
 adj_A = load_variavle('/data0/BigPlatform/FL/lirongchang/localguard/tmp/cora_adj_A.txt')
 adj_B = load_variavle('/data0/BigPlatform/FL/lirongchang/localguard/tmp/cora_adj_B.txt')
 adj_A_link = load_variavle('/data0/BigPlatform/FL/lirongchang/localguard/tmp/cora_adj_A_link.txt')
@@ -433,8 +433,7 @@ class GCN(Module):
         # x = F.dropout(x, p=0.8)
         return x
 
-# 构建VFL模型
-#
+
 def dot_product_decode(Z):
     A_pred = torch.sigmoid(torch.matmul(Z, Z.t()))
     return A_pred
@@ -594,9 +593,6 @@ def adversary():
         # print('the attack train epoch {} and loss is {}'.format(i, loss))
     know_port, acc_0, f1_0 = adversary_class_test(optim_, AttackModel, adv_test, test_privacy_property.cuda())
     print('the attack test epoch {}: the knowledge {} ==> acc is {}, f1 is {}.'.format(i, know_port, acc_0, f1_0))
-
-
-
 
 epochs = 100
 loss_list = list()
