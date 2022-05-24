@@ -6,8 +6,6 @@ from sklearn.metrics import f1_score
 from sklearn.metrics import mean_squared_error
 from torch.utils.data import DataLoader
 
-# 窃取隐私数据分两种，分类和回归。
-# 分类任务
 
 class Adv_class(nn.Module):
     def __init__(self, latent_dim, target_dim):
